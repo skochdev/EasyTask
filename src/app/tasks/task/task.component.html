@@ -1,8 +1,8 @@
 <article>
   <h3>{{ task().title }}</h3>
-  <time datetime="2026-02-08">2026-Feb-08</time>
-  <p>SUMMARY</p>
+  <time datetime="2026-02-08">{{task().dueDate}}</time>
+  <p>{{task().summary}}</p>
   <div class="actions">
-    <button>Complete</button>
+    <button (click)="onCompleteTask()">Complete</button>
   </div>
 </article>

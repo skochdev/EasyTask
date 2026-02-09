@@ -1,10 +1,7 @@
 import {Component, input, output} from '@angular/core';
+import {type User} from "./user.model";
 
-type User = {
-  id: string
-  avatar: string
-  name: string
-}
+
 
 @Component({
   selector: 'app-user',
@@ -15,7 +12,7 @@ type User = {
 export class UserComponent {
   user = input.required<User>();
   select = output<string>();
-
+  selected = input.required<boolean>()
 
   get imagePath() {
     return 'assets/users/' + this.user().avatar

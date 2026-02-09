@@ -1,12 +1,6 @@
-import {Component, input} from '@angular/core';
+import {Component, input, output} from '@angular/core';
+import {type Task} from "./task.model";
 
-type Task = {
-  id: string,
-  userId: string,
-  title: string,
-  summary: string,
-  dueDate: string,
-}
 
 @Component({
   selector: 'app-task',
@@ -17,4 +11,9 @@ type Task = {
 })
 export class TaskComponent {
   task = input.required<Task>()
+  complete = output<string>()
+
+  onCompleteTask() {
+    this.complete.emit(this.task().id)
+  }
 }
