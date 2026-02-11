@@ -1,5 +1,6 @@
 import {Component, input, output} from '@angular/core';
 import {type User} from "./user.model";
+import { CardComponent } from '../shared/card/card.component';
 
 
 
@@ -7,18 +8,19 @@ import {type User} from "./user.model";
   selector: 'app-user',
   standalone: true,
   templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+  imports: [CardComponent],
+  styleUrl: './user.component.css',
 })
 export class UserComponent {
   user = input.required<User>();
   select = output<string>();
-  selected = input.required<boolean>()
+  selected = input.required<boolean>();
 
   get imagePath() {
-    return 'assets/users/' + this.user().avatar
+    return 'assets/users/' + this.user().avatar;
   }
 
   onSelectUser() {
-    this.select.emit(this.user().id)
+    this.select.emit(this.user().id);
   }
 }

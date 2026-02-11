@@ -21,3 +21,4 @@
 
 dotnet husky run
 echo 'Husky.Net is awesome!'
+dotnet husky run
